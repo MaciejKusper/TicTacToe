@@ -139,80 +139,50 @@ String player1= "player1", player2="player2";
         wynik[0].setText(xscore+"");
         wynik[1].setText(oscore+"");
     }
-    public void owynik()
-    {
-      for (int i=0 ; i<9 ; i++)
-      {
-          b[i]=button[i].getText();
-      }
-      for (int i =0 ; i<9 ; i=i+3) {
-        if (b[i]==b[i+1]&& b[i+1]==b[i+2]&&b[i]!=null &&b[i+1]!=null) {
-          JFrame frame = new JFrame("Wynik");
-          if (b[i] == "x") {
-              JOptionPane.showMessageDialog(frame, "Player X win", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-              xscore++;
-              resetm();
-          }
-          else if (b[i] == "o") {
-              JOptionPane.showMessageDialog(frame, "Player O win", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-              oscore++;
-              resetm();
-          }
+    public void owynik() {
+        try {
+        for (int i = 0; i < 9; i++) {
+            b[i] = button[i].getText();
         }
-      } // nie działa zawiesza sie program do poprawy
-      for (int i = 0; i < 3; i = i++) {
-          if (b[i] == b[i + 3] && b[i + 3] == b[i + 6] && b[i] != null && b[i + 3] != null) {
-              JFrame frame = new JFrame("Wynik");
-              if (b[i] == "x") {
-                  JOptionPane.showMessageDialog(frame, "Player X win", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-                  xscore++;
-              }
-              else if (b[i] == "o") {
-                  JOptionPane.showMessageDialog(frame, "Player O win", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-                  oscore++;
-              }
-          }
-      } //dzialą ale strasznie na piechote...
-       /* if (b[0] == b[3] && b[3] == b[6] && b[0] != null && b[3] != null) {
-            JFrame frame = new JFrame("Wynik");
-            if (b[0] == "x") {
-                JOptionPane.showMessageDialog(frame, "Player X win", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-                xscore++;
-                resetm();
-            }
-            else if (b[0] == "o") {
-                JOptionPane.showMessageDialog(frame, "Player O win", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-                oscore++;
-                resetm();
+        for (int i = 0; i < 9; i = i + 3) {
+            if (b[i] == b[i + 1] && b[i + 1] == b[i + 2] && b[i] != null && b[i + 1] != null) {
+                JFrame frame = new JFrame("Wynik");
+                if (b[i] == "x") {
+                    JOptionPane.showMessageDialog(frame, "Player X win", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
+                    button[i].setForeground(Color.red);
+                    xscore++;
+                    resetm();
+                } else if (b[i] == "o") {
+                    JOptionPane.showMessageDialog(frame, "Player O win", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
+                    button[i].setForeground(Color.red);
+                    oscore++;
+                    resetm();
+                }
             }
         }
-        if (b[1] == b[4] && b[4] == b[7] && b[1] != null && b[4] != null) {
-            JFrame frame = new JFrame("Wynik");
-            if (b[1] == "x") {
-                JOptionPane.showMessageDialog(frame, "Player X win", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-                xscore++;
-            }
-            else if (b[1] == "o") {
-                JOptionPane.showMessageDialog(frame, "Player O win", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-                oscore++;
-                resetm();
-            }
-        }
-        if (b[2] == b[5] && b[5] == b[8] && b[2] != null && b[5] != null) {
-            JFrame frame = new JFrame("Wynik");
-            if (b[2] == "x") {
-                JOptionPane.showMessageDialog(frame, "Player X win", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-                xscore++;
-                resetm();
-            }
-            else if (b[2] == "o") {
-                JOptionPane.showMessageDialog(frame, "Player O win", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
-                oscore++;
-                resetm();
+
+
+            for (int i = 0; i < 3; i = i+1) {
+                if (b[i] == b[i + 3] && b[i + 3] == b[i + 6] && b[i] != null && b[i + 3] != null) {
+                    JFrame frame = new JFrame("Wynik");
+                    if (b[i] == "x") {
+                        button[i].setForeground(Color.red);
+                        JOptionPane.showMessageDialog(frame, "Player X win", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
+                        xscore++;
+                        resetm();
+                    } else if (b[i] == "o") {
+                        JOptionPane.showMessageDialog(frame, "Player O win", "Tic Tac Toe", JOptionPane.INFORMATION_MESSAGE);
+                        button[i].setForeground(Color.red);
+                        oscore++;
+                        resetm();
+                    }
+                }
             }
         }
-*/
-        gamescore();
+        catch (Exception e) {
+            System.err.println(e);}
+
+            gamescore();
     }
 
    /* public void getplayer()
