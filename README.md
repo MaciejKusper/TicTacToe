@@ -1,2 +1,2 @@
-# TicTacToe
-The TicTacToe game.
+# TicTacToe Java Swing 
+The sipmle TicTacToe game.
